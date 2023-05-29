@@ -1,4 +1,4 @@
-# tomboy-generator
+# Tomboy Generator 🛵
 
 For fun only 🤣
 
