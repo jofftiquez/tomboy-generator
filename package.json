@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  },
+  "scripts": {
+    "build:css": "npx tailwindcss -i input.css -o ./dist/output.css --watch"
+  },
+  "dependencies": {
+    "daisyui": "^2.51.6"
+  },
+  "name": "tomboy-generator",
+  "version": "1.0.0",
+  "description": "Generate a Filipino Tomboy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jofftiquez/tomboy-generator.git"
+  },
+  "author": "Joff Tiquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jofftiquez/tomboy-generator/issues"
+  },
+  "homepage": "https://github.com/jofftiquez/tomboy-generator#readme"
+}

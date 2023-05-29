@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet">
+</head>
+
+<body onload="onGenerateTomboy()">
+  <div class="mx-auto max-w-7xl px-5">
+    <div class="fixed navbar bg-base-100">
+      <a class="btn btn-ghost normal-case text-xl">Tomboy Generator 🛵</a>
+    </div>
+
+    <div id="toast" class="hidden toast toast-bottom toast-center">
+      <div class="alert alert-success">
+        <div>
+          <span>Tomboy copied to clipboard.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center h-screen">
+      <h1 class="text-3xl font-bold mb-10">
+        Tomboy Generator 🛵
+      </h1>
+      <div class="flex-col md:flex-row justify-between space-x-2 mb-10">
+        <span>Matabang</span>
+        <select type="select" id="matabang">
+          <option value="tomboy">Tomboy</option>
+          <option value="mio">Mio</option>
+          <option value="beltbag">Belt Bag</option>
+          <option value="sh">Senior Highschool</option>
+        </select>
+        <span>na naka</span>
+        <select type="select" id="naka">
+          <option value="tomboy">Tomboy</option>
+          <option value="mio" selected>Mio</option>
+          <option value="beltbag">Belt Bag</option>
+          <option value="sh">Senior Highschool</option>
+        </select>
+        <span>na may suot na</span>
+        <select type="select" id="suot">
+          <option value="tomboy">Tomboy</option>
+          <option value="mio">Mio</option>
+          <option value="beltbag" selected>Belt Bag</option>
+          <option value="sh">Senior Highschool</option>
+        </select>
+        <span>na may jowang</span>
+        <select type="select" id="jowa">
+          <option value="tomboy">Tomboy</option>
+          <option value="mio">Mio</option>
+          <option value="beltbag">Belt Bag</option>
+          <option value="sh" selected>Senior Highschool</option>
+        </select>
+      </div>
+      <button id="generateButton" class="btn btn-primary">
+        Generate Tomboy
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function onGenerateTomboy() {
+
+      const options = [
+        'tomboy',
+        'Mio',
+        'beltbag',
+        'Senior Highschool'
+      ];
+
+      const randomized = [];
+
+      for (let i = 0; i < 4; i++) {
+        randomized.push(i);
+      }
+
+      randomized.sort(() => Math.random() - 0.5);
+
+      const matabang = randomized[0];
+      const naka = randomized[1];
+      const suot = randomized[2];
+      const jowa = randomized[3];
+
+      const matabangElement = document.getElementById('matabang');
+      const nakaElement = document.getElementById('naka');
+      const suotElement = document.getElementById('suot');
+      const jowaElement = document.getElementById('jowa');
+
+      matabangElement.selectedIndex = matabang;
+      nakaElement.selectedIndex = naka;
+      suotElement.selectedIndex = suot;
+      jowaElement.selectedIndex = jowa;
+
+      const generatedText = `Matabang ${options[matabang]} na naka ${options[naka]} na may suot na ${options[suot]} na may jowang ${options[jowa]}`;
+
+      navigator.clipboard.writeText(generatedText);
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2000);
+    }
+
+    document.getElementById('generateButton').addEventListener('click', function () {
+      onGenerateTomboy();
+      showToast();
+    });
+  </script>
+</body>
+
+</html>
